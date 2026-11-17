@@ -12,9 +12,13 @@
     "new": "node scripts/new-post.mjs"
   },
   "dependencies": {
-    "astro": "^7.0.0",
+    "@astrojs/markdown-remark": "^7.3.9",
     "@astrojs/rss": "latest",
     "@astrojs/sitemap": "latest",
+    "astro": "^7.0.0",
+    "katex": "^0.19.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "sharp": "latest"
   },
   "engines": {

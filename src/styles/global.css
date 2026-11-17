@@ -449,6 +449,29 @@ a.tag:hover {
   margin-top: 1.15em;
 }
 
+.prose details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+  padding: 0.8rem 1rem;
+}
+
+.prose details > summary {
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.prose details[open] > summary {
+  margin-bottom: 1rem;
+}
+
+.prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+}
+
 .prose h2,
 .prose h3,
 .prose h4 {
