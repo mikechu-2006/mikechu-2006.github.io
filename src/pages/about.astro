@@ -10,19 +10,19 @@ import { SITE } from '../consts';
         <h1>关于</h1>
       </header>
       <div class="prose">
-        <p>我是{SITE.author}，一名后端工程师。白天写业务代码，晚上写一些没什么用但很想知道答案的东西。</p>
-        <p>这个博客建于 2026 年，内容以技术笔记为主，也会有阅读和生活的记录。所有文章都写在 Markdown 里，存在 Git 仓库中，由 Astro 生成静态页面，托管在 GitHub Pages。</p>
+        <p>我是{SITE.author}。这里放我平时写的东西：算法题解、C++ 里那些容易踩的细节，以及比赛之后的一些记录。</p>
+        <p>文章原本散在别的平台上，现在搬到了这里——地址是自己的，内容存在 Git 仓库里，哪天想换地方，一个文件夹就能带走。</p>
 
         <h2>关于写作</h2>
-        <p>我相信写作是思考的副产物：只有把一件事写清楚，才知道自己到底懂没懂。所以这里的文章更关心「为什么」和「我踩过什么坑」，而不是把文档抄一遍。</p>
-        <p>如果某篇文章帮你省下了半小时，那就是它存在的全部意义。</p>
+        <p>把一道题的思路写下来，比 AC 它更有用。写不清楚的地方，往往就是当时没想明白的地方。</p>
+        <p>所以这里的题解会写「为什么这么做」，而不只是「代码在下面」。写得不对的地方，欢迎指出来。</p>
 
         <h2>联系我</h2>
         <ul>
-          <li>邮箱：<a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           {SITE.social.github && (
             <li>GitHub：<a href={SITE.social.github} rel="me">{SITE.social.github}</a></li>
           )}
+          {SITE.email && <li>邮箱：<a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>}
           <li>订阅：<a href="/rss.xml">RSS</a></li>
         </ul>
 
@@ -30,7 +30,7 @@ import { SITE } from '../consts';
         <ul>
           <li>框架：Astro（纯静态，无客户端框架）</li>
           <li>托管：GitHub Pages</li>
-          <li>源码：托管在 GitHub，每篇文章都是仓库里的一个 <code>.md</code> 文件</li>
+          <li>源码：GitHub 仓库，每篇文章是一个 <code>.md</code> 文件</li>
         </ul>
       </div>
     </article>
