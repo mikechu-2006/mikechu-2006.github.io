@@ -5,26 +5,19 @@ import { SITE } from '../consts';
 import { getPublishedPosts } from '../utils/posts';
 
 const posts = await getPublishedPosts();
-const recent = posts.slice(0, 6);
 ---
 
 <BaseLayout active="home">
   <div class="wrap">
-    <section class="hero">
-      <h1>你好，我是{SITE.author}。</h1>
-      <div class="hero-links">
-        <a class="chip" href="/archives">全部文章 →</a>
-        {SITE.social.github && <a class="chip" href={SITE.social.github} rel="me">GitHub</a>}
-        <a class="chip" href="/rss.xml">RSS 订阅</a>
-      </div>
-    </section>
+    {/* 首屏直接进内容；h1 保留给屏幕阅读器和搜索引擎 */}
+    <h1 class="sr-only">{SITE.title}</h1>
 
     <section aria-labelledby="recent">
       <div class="section-head">
         <h2 id="recent">最近文章</h2>
         <a href="/archives">共 {posts.length} 篇 →</a>
       </div>
-      <PostList posts={recent} />
+      <PostList posts={posts} />
     </section>
   </div>
 </BaseLayout>
