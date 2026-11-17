@@ -11,9 +11,7 @@ const recent = posts.slice(0, 6);
 <BaseLayout active="home">
   <div class="wrap">
     <section class="hero">
-      <p class="hero-kicker">Notes on algorithms</p>
       <h1>你好，我是{SITE.author}。</h1>
-      <p>这里记一些算法题解、C++ 的细节，和偶尔的随笔。写作是为了把话讲清楚，顺便留下一点痕迹。</p>
       <div class="hero-links">
         <a class="chip" href="/archives">全部文章 →</a>
         {SITE.social.github && <a class="chip" href={SITE.social.github} rel="me">GitHub</a>}

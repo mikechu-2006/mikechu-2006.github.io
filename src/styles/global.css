@@ -453,6 +453,11 @@ a.tag:hover {
   border-bottom: 1px solid var(--line);
 }
 
+.prose > h2:first-child,
+.prose > h3:first-child {
+  margin-top: 0;
+}
+
 .prose h3 {
   font-size: 1.2rem;
   margin-top: 2em;
