@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { getPublishedPosts } from '../utils/posts';
+
+const posts = await getPublishedPosts();
+
+// 按年份分组
+const byYear = new Map<number, typeof posts>();
+for (const post of posts) {
+  const year = post.data.date.getFullYear();
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(post);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+---
+
+<BaseLayout title="归档" description="所有文章，按年份排列。" active="archives">
+  <div class="wrap">
+    <h1 class="page-title">归档</h1>
+    <p class="page-lead">共 {posts.length} 篇文章，倒序排列。</p>
+
+    {years.map((year) => (
+      <section>
+        <div class="section-head">
+          <h2>{year}</h2>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-faint);">
+            {byYear.get(year)!.length} 篇
+          </span>
+        </div>
+        <PostList posts={byYear.get(year)!} />
+      </section>
+    ))}
+  </div>
+</BaseLayout>

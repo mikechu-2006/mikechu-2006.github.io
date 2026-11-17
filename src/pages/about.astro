@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout title="关于" description={`关于 ${SITE.title} 和作者。`} active="about">
+  <div class="wrap">
+    <article class="post">
+      <header class="post-header">
+        <h1>关于</h1>
+      </header>
+      <div class="prose">
+        <p>我是{SITE.author}，一名后端工程师。白天写业务代码，晚上写一些没什么用但很想知道答案的东西。</p>
+        <p>这个博客建于 2026 年，内容以技术笔记为主，也会有阅读和生活的记录。所有文章都写在 Markdown 里，存在 Git 仓库中，由 Astro 生成静态页面，托管在 GitHub Pages。</p>
+
+        <h2>关于写作</h2>
+        <p>我相信写作是思考的副产物：只有把一件事写清楚，才知道自己到底懂没懂。所以这里的文章更关心「为什么」和「我踩过什么坑」，而不是把文档抄一遍。</p>
+        <p>如果某篇文章帮你省下了半小时，那就是它存在的全部意义。</p>
+
+        <h2>联系我</h2>
+        <ul>
+          <li>邮箱：<a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          {SITE.social.github && (
+            <li>GitHub：<a href={SITE.social.github} rel="me">{SITE.social.github}</a></li>
+          )}
+          <li>订阅：<a href="/rss.xml">RSS</a></li>
+        </ul>
+
+        <h2>本站</h2>
+        <ul>
+          <li>框架：Astro（纯静态，无客户端框架）</li>
+          <li>托管：GitHub Pages</li>
+          <li>源码：托管在 GitHub，每篇文章都是仓库里的一个 <code>.md</code> 文件</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

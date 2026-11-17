@@ -1,0 +1,20 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getPublishedPosts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post, index) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      prev: posts[index + 1], // 更早的一篇
+      next: posts[index - 1], // 更新的一篇
+    },
+  }));
+}
+
+const { post, prev, next } = Astro.props;
+---
+
+<PostLayout post={post} prev={prev} next={next} />
